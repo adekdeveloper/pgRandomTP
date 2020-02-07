@@ -12,10 +12,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class RandomTeleportPlugin extends JavaPlugin {
 
-    private Config config;
-    private Messages messages;
     private TeleportManager teleportManager;
     private ButtonManager buttonManager;
+    private Messages messages;
+    private Config config;
 
     @Override
     public void onEnable(){
@@ -42,9 +42,16 @@ public final class RandomTeleportPlugin extends JavaPlugin {
     public TeleportManager getTeleportManager(){
         return teleportManager;
     }
+
     public ButtonManager getButtonManager() {
         return buttonManager;
     }
-    public Config getConfiguration(){ return config; }
-    public Messages getMessages(){ return messages; }
+
+    public Config getConfiguration(){
+        return config;
+    }
+
+    public Messages getMessages(){
+        return messages;
+    }
 }

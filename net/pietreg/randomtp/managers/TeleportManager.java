@@ -6,7 +6,6 @@ import net.pietreg.randomtp.utils.ChatUtils;
 import net.pietreg.randomtp.utils.LocationUtils;
 import net.pietreg.randomtp.utils.ParserUtils;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -33,7 +32,7 @@ public final class TeleportManager {
     }
 
     public void teleportGroup(final Player player){
-        if (plugin.getConfiguration().OPTIONS_GROUP_USE$PLATE && player.getLocation().getBlock().getType() != Material.STONE_PLATE) return;
+        if (plugin.getConfiguration().OPTIONS_GROUP_USE$PLATE && !player.getLocation().getBlock().getType().toString().contains("PLATE")) return;
         final Location location = LocationUtils.getRandomCords(plugin.getConfiguration());
         LocationUtils.findPlayers(player.getLocation(), plugin.getConfiguration().OPTIONS_GROUP_RADIUS, plugin.getConfiguration().OPTIONS_GROUP_USE$PLATE).forEach(players -> {
             if (plugin.getConfiguration().OPTIONS_GROUP_REMOVE$EFFECTS) players.getActivePotionEffects().forEach(potionEffect -> players.removePotionEffect(potionEffect.getType()));

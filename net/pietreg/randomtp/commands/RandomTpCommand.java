@@ -64,7 +64,7 @@ public class RandomTpCommand implements CommandExecutor {
                     return ChatUtils.sendMessage(player, messages.COMMAND_GROUP_MUST$STONE$BUTTON);
                 }
                 plugin.getButtonManager().addGroupButton(block.getLocation());
-                return ChatUtils.sendMessage(player, messages.COMMAND_GROUP_REMOVED);
+                return ChatUtils.sendMessage(player, messages.COMMAND_GROUP_CREATED);
             }
             if (args[1].equalsIgnoreCase("remove")){
                 if (plugin.getButtonManager().isSoloButton(block.getLocation())) {

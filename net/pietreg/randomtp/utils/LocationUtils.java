@@ -34,7 +34,7 @@ public final class LocationUtils {
         Bukkit.getOnlinePlayers().forEach(player -> {
             if (location.distance(player.getLocation()) < distance){
                 if (b){
-                    if (player.getLocation().getBlock().getType() == Material.STONE_PLATE){
+                    if (player.getLocation().getBlock().getType().toString().contains("PLATE")){
                         playerList.add(player);
                     }
                 }else {
