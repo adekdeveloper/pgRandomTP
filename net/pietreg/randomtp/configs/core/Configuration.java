@@ -10,7 +10,7 @@ public interface Configuration {
     default void parseSave(final Class<?> clazz, final YamlConfiguration config) {
         try {
             for (final Field f : clazz.getFields()) {
-                if (Modifier.isStatic(f.getModifiers()) && Modifier.isPublic(f.getModifiers())) {
+                if (Modifier.isPublic(f.getModifiers())) {
                     String path = f.getName().toLowerCase();
                     path = StringUtils.replace(path, "_", ".");
                     path = StringUtils.replace(path, "$", "-");
@@ -27,7 +27,7 @@ public interface Configuration {
     default void parse(final Class<?> clazz, final YamlConfiguration config) {
         try {
             for (final Field f : clazz.getFields()) {
-                if (Modifier.isStatic(f.getModifiers()) && Modifier.isPublic(f.getModifiers())) {
+                if (Modifier.isPublic(f.getModifiers())) {
                     String path = f.getName().toLowerCase();
                     path = StringUtils.replace(path, "_", ".");
                     path = StringUtils.replace(path, "$", "-");
