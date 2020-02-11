@@ -1,4 +1,8 @@
 name: 'pgRandomTP'
 author: 'pietreg'
 main: 'net.pietreg.randomtp.RandomTeleportPlugin'
-version: '1.1'
+version: '1.0'
+
+commands:
+  randomtp:
+    description: 'Ustawianie lokacji losowych teleportow'

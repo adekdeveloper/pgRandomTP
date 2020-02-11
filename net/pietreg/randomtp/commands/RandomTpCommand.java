@@ -29,52 +29,51 @@ public class RandomTpCommand implements CommandExecutor {
 
         final Player player = (Player) sender;
         final Block block = player.getTargetBlock((Set<Material>) null, 5);
-        final Messages messages = plugin.getMessages();
 
-        if (!block.getType().toString().contains("BUTTON")) return ChatUtils.sendMessage(player, messages.COMMAND_NO$BUTTON);
+        if (!block.getType().toString().contains("BUTTON")) return ChatUtils.sendMessage(player, Messages.COMMAND_NO$BUTTON);
 
         if (args[0].equalsIgnoreCase("solo")){
             if (args[1].equalsIgnoreCase("set")){
                 if (plugin.getButtonManager().isSoloButton(block.getLocation()) || plugin.getButtonManager().isGroupButton(block.getLocation())) {
-                    return ChatUtils.sendMessage(player, messages.COMMAND_ENGAGED$BUTTON);
+                    return ChatUtils.sendMessage(player, Messages.COMMAND_ENGAGED$BUTTON);
                 }
                 if (block.getType() != Material.WOOD_BUTTON) {
-                    return ChatUtils.sendMessage(player, messages.COMMAND_SOLO_MUST$WOOD$BUTTON);
+                    return ChatUtils.sendMessage(player, Messages.COMMAND_SOLO_MUST$WOOD$BUTTON);
                 }
                 plugin.getButtonManager().addSoloButton(block.getLocation());
-                return ChatUtils.sendMessage(player, messages.COMMAND_SOLO_CREATED);
+                return ChatUtils.sendMessage(player, Messages.COMMAND_SOLO_CREATED);
             }
             if (args[1].equalsIgnoreCase("remove")){
                 if (plugin.getButtonManager().isGroupButton(block.getLocation())) {
-                    return ChatUtils.sendMessage(player, messages.COMMAND_OTHER$BUTTON);
+                    return ChatUtils.sendMessage(player, Messages.COMMAND_OTHER$BUTTON);
                 }
                 if (!plugin.getButtonManager().isSoloButton(block.getLocation())) {
-                    return ChatUtils.sendMessage(player, messages.COMMAND_NO$TELEPORTER);
+                    return ChatUtils.sendMessage(player, Messages.COMMAND_NO$TELEPORTER);
                 }
                 plugin.getButtonManager().removeSoloButton(block.getLocation());
-                return ChatUtils.sendMessage(player, messages.COMMAND_SOLO_REMOVED);
+                return ChatUtils.sendMessage(player, Messages.COMMAND_SOLO_REMOVED);
             }
         }
         if (args[0].equalsIgnoreCase("group")){
             if (args[1].equalsIgnoreCase("set")){
                 if (plugin.getButtonManager().isSoloButton(block.getLocation()) || plugin.getButtonManager().isGroupButton(block.getLocation())) {
-                    return ChatUtils.sendMessage(player, messages.COMMAND_ENGAGED$BUTTON);
+                    return ChatUtils.sendMessage(player, Messages.COMMAND_ENGAGED$BUTTON);
                 }
                 if (block.getType() != Material.STONE_BUTTON) {
-                    return ChatUtils.sendMessage(player, messages.COMMAND_GROUP_MUST$STONE$BUTTON);
+                    return ChatUtils.sendMessage(player, Messages.COMMAND_GROUP_MUST$STONE$BUTTON);
                 }
                 plugin.getButtonManager().addGroupButton(block.getLocation());
-                return ChatUtils.sendMessage(player, messages.COMMAND_GROUP_CREATED);
+                return ChatUtils.sendMessage(player, Messages.COMMAND_GROUP_CREATED);
             }
             if (args[1].equalsIgnoreCase("remove")){
                 if (plugin.getButtonManager().isSoloButton(block.getLocation())) {
-                    return ChatUtils.sendMessage(player, messages.COMMAND_OTHER$BUTTON);
+                    return ChatUtils.sendMessage(player, Messages.COMMAND_OTHER$BUTTON);
                 }
                 if (!plugin.getButtonManager().isGroupButton(block.getLocation())) {
-                    return ChatUtils.sendMessage(player, messages.COMMAND_NO$TELEPORTER);
+                    return ChatUtils.sendMessage(player, Messages.COMMAND_NO$TELEPORTER);
                 }
                 plugin.getButtonManager().removeGroupButton(block.getLocation());
-                return ChatUtils.sendMessage(player, messages.COMMAND_GROUP_REMOVED);
+                return ChatUtils.sendMessage(player, Messages.COMMAND_GROUP_REMOVED);
             }
         }
         return ChatUtils.sendMessage(player, "&7Poprawne uzycie: &a/randomtp <solo/group> <set/remove>");

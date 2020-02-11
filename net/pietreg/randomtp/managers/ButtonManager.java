@@ -6,37 +6,34 @@ import org.bukkit.Location;
 
 public final class ButtonManager {
 
-    private Config config;
-
-    public ButtonManager(final Config config){
-        this.config = config;
+    public ButtonManager(){
     }
 
     public boolean isSoloButton(final Location location){
-        return config.LIST_SOLO.contains(LocationUtils.locToString(location));
+        return Config.LIST_SOLO.contains(LocationUtils.locToString(location));
     }
 
     public void removeSoloButton(final Location location){
-        config.LIST_SOLO.remove(LocationUtils.locToString(location));
-        config.saveConfig();
+        Config.LIST_SOLO.remove(LocationUtils.locToString(location));
+        Config.saveConfig();
     }
 
     public void addSoloButton(final Location location){
-        config.LIST_SOLO.add(LocationUtils.locToString(location));
-        config.saveConfig();
+        Config.LIST_SOLO.add(LocationUtils.locToString(location));
+        Config.saveConfig();
     }
 
     public boolean isGroupButton(final Location location){
-        return config.LIST_GROUP.contains(LocationUtils.locToString(location));
+        return Config.LIST_GROUP.contains(LocationUtils.locToString(location));
     }
 
     public void removeGroupButton(final Location location){
-        config.LIST_GROUP.remove(LocationUtils.locToString(location));
-        config.saveConfig();
+        Config.LIST_GROUP.remove(LocationUtils.locToString(location));
+        Config.saveConfig();
     }
 
     public void addGroupButton(final Location location){
-        config.LIST_GROUP.add(LocationUtils.locToString(location));
-        config.saveConfig();
+        Config.LIST_GROUP.add(LocationUtils.locToString(location));
+        Config.saveConfig();
     }
 }

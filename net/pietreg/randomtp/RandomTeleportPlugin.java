@@ -14,8 +14,6 @@ public final class RandomTeleportPlugin extends JavaPlugin {
 
     private TeleportManager teleportManager;
     private ButtonManager buttonManager;
-    private Messages messages;
-    private Config config;
 
     @Override
     public void onEnable(){
@@ -26,11 +24,11 @@ public final class RandomTeleportPlugin extends JavaPlugin {
         final long start = System.currentTimeMillis();
         getLogger().info("Initializacja pluginu pgRandomTP...");
 
-        config = new Config(this);
-        messages = new Messages(this);
+        new Config(this);
+        new Messages(this);
 
-        teleportManager = new TeleportManager(this);
-        buttonManager = new ButtonManager(config);
+        teleportManager = new TeleportManager();
+        buttonManager = new ButtonManager();
 
         new PlayerJoinListener(this);
         new PlayerInteractListener(this);
@@ -47,11 +45,4 @@ public final class RandomTeleportPlugin extends JavaPlugin {
         return buttonManager;
     }
 
-    public Config getConfiguration(){
-        return config;
-    }
-
-    public Messages getMessages(){
-        return messages;
-    }
 }

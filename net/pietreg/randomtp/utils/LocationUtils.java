@@ -19,11 +19,11 @@ public final class LocationUtils {
         return (loc.getBlockX()) + ";" + loc.getBlockY() + ";" + loc.getBlockZ();
     }
 
-    public static Location getRandomCords(final Config config) {
+    public static Location getRandomCords() {
         // RADIOAKTYWNOŚĆ METODY (LEPIEJ NA NIĄ NIE PATRZEĆ)
-        Location location = new Location(Bukkit.getWorlds().get(0), RandomUtils.getRandomDouble(-config.OPTIONS_CORDS$MIN, config.OPTIONS_CORDS$MAX), 0.0, RandomUtils.getRandomDouble(-config.OPTIONS_CORDS$MIN, config.OPTIONS_CORDS$MAX));
+        Location location = new Location(Bukkit.getWorlds().get(0), RandomUtils.getRandomDouble(-Config.OPTIONS_CORDS$MIN, Config.OPTIONS_CORDS$MAX), 0.0, RandomUtils.getRandomDouble(-Config.OPTIONS_CORDS$MIN, Config.OPTIONS_CORDS$MAX));
         while (location.getBlock().getBiome() == Biome.OCEAN || location.getBlock().getBiome() == Biome.DEEP_OCEAN || location.getBlock().getBiome() == Biome.RIVER){
-            location = new Location(Bukkit.getWorlds().get(0), RandomUtils.getRandomDouble(-config.OPTIONS_CORDS$MIN, config.OPTIONS_CORDS$MAX), 0.0, RandomUtils.getRandomDouble(-config.OPTIONS_CORDS$MIN, config.OPTIONS_CORDS$MAX));
+            location = new Location(Bukkit.getWorlds().get(0), RandomUtils.getRandomDouble(-Config.OPTIONS_CORDS$MIN, Config.OPTIONS_CORDS$MAX), 0.0, RandomUtils.getRandomDouble(-Config.OPTIONS_CORDS$MIN, Config.OPTIONS_CORDS$MAX));
         }
         location.setY((double)location.getWorld().getHighestBlockYAt(location.getBlockX(), location.getBlockZ()) + 1);
         return location;
